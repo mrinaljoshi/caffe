@@ -151,7 +151,7 @@
     </CudaCompile>
     <ClCompile>
       <DisableSpecificWarnings>4661;4005;4812;4715;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\src\;C:\Program Files %28x86%29\protobuf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\src\;C:\Program Files %28x86%29\protobuf\include;C:\Program Files %28x86%29\HDF_Group\HDF5\1.8.17\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Lib>
       <AdditionalOptions>/ignore:4221 %(AdditionalOptions)</AdditionalOptions>
