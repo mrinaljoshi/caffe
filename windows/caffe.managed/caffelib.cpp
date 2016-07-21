@@ -10,7 +10,7 @@ using namespace System::Drawing::Imaging;
 
 #define TO_NATIVE_STRING(str) msclr::interop::marshal_as<std::string>(str)
 #define MARSHAL_ARRAY(n_array, m_array) \
-  auto m_array = gcnew array<float>(n_array.Size); \
+  auto m_array = gcnew cli::array<float>(n_array.Size); \
   pin_ptr<float> pma = &m_array[0]; \
   memcpy(pma, n_array.Data, n_array.Size * sizeof(float));
 
@@ -58,20 +58,20 @@ namespace CaffeLibMC {
       m_net = NULL;
     }
 
-    array<float>^ ExtractOutputs(String^ imageFile, int interpolation, String^ blobName)
+    cli::array<float>^ ExtractOutputs(String^ imageFile, int interpolation, String^ blobName)
     {
       FloatArray intermediate = m_net->ExtractOutputs(TO_NATIVE_STRING(imageFile), interpolation, TO_NATIVE_STRING(blobName));
       MARSHAL_ARRAY(intermediate, outputs)
         return outputs;
     }
 
-    array<array<float>^>^ ExtractOutputs(String^ imageFile, int interpolation, array<String^>^ blobNames)
+	cli::array<cli::array<float>^>^ ExtractOutputs(String^ imageFile, int interpolation, cli::array<String^>^ blobNames)
     {
       std::vector<std::string> names;
       for each(String^ name in blobNames)
         names.push_back(TO_NATIVE_STRING(name));
       std::vector<FloatArray> intermediates = m_net->ExtractOutputs(TO_NATIVE_STRING(imageFile), interpolation, names);
-      auto outputs = gcnew array<array<float>^>(static_cast<int>(names.size()));
+      auto outputs = gcnew cli::array<cli::array<float>^>(static_cast<int>(names.size()));
       for (int i = 0; i < names.size(); ++i)
       {
         auto intermediate = intermediates[i];
@@ -124,7 +124,7 @@ namespace CaffeLibMC {
         return datum_string;
     }
 
-    array<float>^ ExtractOutputs(Bitmap^ imgData, String^ blobName)
+	cli::array<float>^ ExtractOutputs(Bitmap^ imgData, String^ blobName)
     {
         string datum_string = ConvertToDatum(imgData);
 
@@ -133,7 +133,7 @@ namespace CaffeLibMC {
             return outputs;
     }
 
-    array<array<float>^>^ ExtractOutputs(Bitmap^ imgData, array<String^>^ blobNames)
+	cli::array<cli::array<float>^>^ ExtractOutputs(Bitmap^ imgData, cli::array<String^>^ blobNames)
     {
         string datum_string = ConvertToDatum(imgData);
 
@@ -141,7 +141,7 @@ namespace CaffeLibMC {
         for each(String^ name in blobNames)
             names.push_back(TO_NATIVE_STRING(name));
         vector<FloatArray> intermediates = m_net->ExtractBitmapOutputs(datum_string, 0, names);
-        auto outputs = gcnew array<array<float>^>(static_cast<int>(names.size()));
+        auto outputs = gcnew cli::array<cli::array<float>^>(static_cast<int>(names.size()));
         for (int i = 0; i < names.size(); ++i)
         {
             auto intermediate = intermediates[i];
