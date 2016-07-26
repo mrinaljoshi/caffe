@@ -93,6 +93,7 @@
     </Link>
     <ClCompile>
       <DisableSpecificWarnings>4005</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\protobuf\include</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>

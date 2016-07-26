@@ -82,6 +82,9 @@
       <AdditionalDependencies>libcaffe.lib;$(CudaDependencies);%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\protobuf\include</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\tools\upgrade_solver_proto_text.cpp" />
