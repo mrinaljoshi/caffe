@@ -92,7 +92,8 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>"$(ScriptsDir)\FixGFlagsNaming.cmd" "$(OutDir)" $(Configuration)</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Program Files %28x86%29\protobuf\include;C:\Program Files (x86)\gflags\Include;C:\Program Files (x86)\google-glog\include</AdditionalIncludeDirectories>
