@@ -79,11 +79,11 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Link>
-      <AdditionalDependencies>libcaffe.lib;$(CudaDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libcaffe.lib;$(CudaDependencies);C:\Program Files (x86)\protobuf\lib\libprotobuf.lib;C:\Program Files (x86)\HDF_Group\HDF5\1.8.17\lib\hdf5.lib;C:\Program Files (x86)\HDF_Group\HDF5\1.8.17\lib\hdf5_cpp.lib;C:\Program Files (x86)\HDF_Group\HDF5\1.8.17\lib\hdf5_hl.lib;C:\Program Files (x86)\HDF_Group\HDF5\1.8.17\lib\hdf5_hl_cpp.lib;C:\Program Files (x86)\HDF_Group\HDF5\1.8.17\lib\hdf5_tools.lib;C:\git\lightningdb-win\Release\lmdb.lib;C:\git\leveldb\new_build\Release\leveldb.lib;C:\Program Files\boost_1_61_0\bin.v2\libs\filesystem\build\msvc-14.0\release\link-static\threading-multi\libboost_filesystem-vc140-mt-1_61.lib;C:\Program Files\boost_1_61_0\bin.v2\libs\system\build\msvc-14.0\release\link-static\threading-multi\libboost_system-vc140-mt-1_61.lib;C:\Program Files\boost_1_61_0\bin.v2\libs\date_time\build\msvc-14.0\release\link-static\threading-multi\libboost_date_time-vc140-mt-1_61.lib;C:\Program Files (x86)\google-glog\lib\glog.lib;C:\Program Files (x86)\gflags\Lib\gflags.lib;C:\lib\opencv-2.4.13\opencv\sources\new_build\install\x86\vc14\lib\opencv_core2413.lib;C:\lib\opencv-2.4.13\opencv\sources\new_build\install\x86\vc14\lib\opencv_highgui2413.lib;C:\lib\opencv-2.4.13\opencv\sources\new_build\install\x86\vc14\lib\opencv_imgproc2413.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\protobuf\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\protobuf\include;C:\Program Files (x86)\gflags\Include;C:\Program Files (x86)\google-glog\include</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
