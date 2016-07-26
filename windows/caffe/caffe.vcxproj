@@ -88,14 +88,16 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Link>
-      <AdditionalDependencies>libcaffe.lib;$(CudaDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libcaffe.lib;$(CudaDependencies);C:\Program Files (x86)\protobuf\lib\libprotobuf.lib;C:\Program Files (x86)\HDF_Group\HDF5\1.8.17\lib\hdf5.lib;C:\Program Files (x86)\HDF_Group\HDF5\1.8.17\lib\hdf5_cpp.lib;C:\Program Files (x86)\HDF_Group\HDF5\1.8.17\lib\hdf5_hl.lib;C:\Program Files (x86)\HDF_Group\HDF5\1.8.17\lib\hdf5_hl_cpp.lib;C:\Program Files (x86)\HDF_Group\HDF5\1.8.17\lib\hdf5_tools.lib;C:\git\lightningdb-win\Release\lmdb.lib;C:\git\leveldb\new_build\Release\leveldb.lib;C:\Program Files\boost_1_61_0\bin.v2\libs\filesystem\build\msvc-14.0\release\link-static\threading-multi\libboost_filesystem-vc140-mt-1_61.lib;C:\Program Files\boost_1_61_0\bin.v2\libs\system\build\msvc-14.0\release\link-static\threading-multi\libboost_system-vc140-mt-1_61.lib;C:\Program Files\boost_1_61_0\bin.v2\libs\date_time\build\msvc-14.0\release\link-static\threading-multi\libboost_date_time-vc140-mt-1_61.lib;C:\Program Files (x86)\google-glog\lib\glog.lib;C:\Program Files (x86)\gflags\Lib\gflags_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
       <Command>"$(ScriptsDir)\FixGFlagsNaming.cmd" "$(OutDir)" $(Configuration)</Command>
     </PostBuildEvent>
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\protobuf\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\protobuf\include;C:\Program Files (x86)\gflags\Include;C:\Program Files (x86)\google-glog\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>GOOGLE_GLOG_DLL_DECL=;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -127,8 +129,8 @@
     <Import Project="..\packages\boost.1.59.0.0\build\native\boost.targets" Condition="Exists('..\packages\boost.1.59.0.0\build\native\boost.targets')" />
     <Import Project="..\packages\boost_thread-vc140.1.59.0.0\build\native\boost_thread-vc140.targets" Condition="Exists('..\packages\boost_thread-vc140.1.59.0.0\build\native\boost_thread-vc140.targets')" />
     <!--Import Project="..\packages\boost_python2.7-vc140.1.59.0.0\build\native\boost_python-vc140.targets" Condition="Exists('..\packages\boost_python2.7-vc140.1.59.0.0\build\native\boost_python-vc140.targets')" /-->
-    <Import Project="..\packages\gflags.2.1.2.1\build\native\gflags.targets" Condition="Exists('..\packages\gflags.2.1.2.1\build\native\gflags.targets')" />
-    <Import Project="..\packages\glog.0.3.3.0\build\native\glog.targets" Condition="Exists('..\packages\glog.0.3.3.0\build\native\glog.targets')" />
+    <!--Import Project="..\packages\gflags.2.1.2.1\build\native\gflags.targets" Condition="Exists('..\packages\gflags.2.1.2.1\build\native\gflags.targets')" /-->
+    <!--Import Project="..\packages\glog.0.3.3.0\build\native\glog.targets" Condition="Exists('..\packages\glog.0.3.3.0\build\native\glog.targets')" /-->
     <!--Import Project="..\packages\protobuf-v140.2.6.1\build\native\protobuf-v140.targets" Condition="Exists('..\packages\protobuf-v140.2.6.1\build\native\protobuf-v140.targets')" /-->
     <!--Import Project="..\packages\LevelDB-vc140.1.2.0.0\build\native\LevelDB-vc140.targets" Condition="Exists('..\packages\LevelDB-vc140.1.2.0.0\build\native\LevelDB-vc140.targets')" /-->
     <!--Import Project="..\packages\lmdb-v140-clean.0.9.14.0\build\native\lmdb-v140-clean.targets" Condition="Exists('..\packages\lmdb-v140-clean.0.9.14.0\build\native\lmdb-v140-clean.targets')" /-->
@@ -148,10 +150,10 @@
     <Error Condition="!Exists('..\packages\boost.1.59.0.0\build\native\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost.1.59.0.0\build\native\boost.targets'))" />
     <Error Condition="!Exists('..\packages\boost_thread-vc140.1.59.0.0\build\native\boost_thread-vc140.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost_thread-vc140.1.59.0.0\build\native\boost_thread-vc140.targets'))" />
     <!--Error Condition="!Exists('..\packages\boost_python2.7-vc140.1.59.0.0\build\native\boost_python-vc140.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost_python2.7-vc140.1.59.0.0\build\native\boost_python-vc140.targets'))" /-->
-    <Error Condition="!Exists('..\packages\gflags.2.1.2.1\build\native\gflags.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\gflags.2.1.2.1\build\native\gflags.props'))" />
-    <Error Condition="!Exists('..\packages\gflags.2.1.2.1\build\native\gflags.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\gflags.2.1.2.1\build\native\gflags.targets'))" />
-    <Error Condition="!Exists('..\packages\glog.0.3.3.0\build\native\glog.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glog.0.3.3.0\build\native\glog.props'))" />
-    <Error Condition="!Exists('..\packages\glog.0.3.3.0\build\native\glog.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glog.0.3.3.0\build\native\glog.targets'))" />
+    <!--Error Condition="!Exists('..\packages\gflags.2.1.2.1\build\native\gflags.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\gflags.2.1.2.1\build\native\gflags.props'))" /-->
+    <!--Error Condition="!Exists('..\packages\gflags.2.1.2.1\build\native\gflags.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\gflags.2.1.2.1\build\native\gflags.targets'))" /-->
+    <!--Error Condition="!Exists('..\packages\glog.0.3.3.0\build\native\glog.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glog.0.3.3.0\build\native\glog.props'))" /-->
+    <!--Error Condition="!Exists('..\packages\glog.0.3.3.0\build\native\glog.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glog.0.3.3.0\build\native\glog.targets'))" /-->
     <!--Error Condition="!Exists('..\packages\protobuf-v140.2.6.1\build\native\protobuf-v140.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\protobuf-v140.2.6.1\build\native\protobuf-v140.targets'))" /-->
     <!--Error Condition="!Exists('..\packages\LevelDB-vc140.1.2.0.0\build\native\LevelDB-vc140.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\LevelDB-vc140.1.2.0.0\build\native\LevelDB-vc140.targets'))" /-->
     <!--Error Condition="!Exists('..\packages\lmdb-v140-clean.0.9.14.0\build\native\lmdb-v140-clean.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\lmdb-v140-clean.0.9.14.0\build\native\lmdb-v140-clean.targets'))" /-->
