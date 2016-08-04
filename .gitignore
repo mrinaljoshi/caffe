@@ -64,6 +64,7 @@ data/mnist/*
 !data/mnist/get_mnist.*
 data/ilsvrc12/*
 !data/ilsvrc12/
+!data/ilsvrc12/get_ilsvrc_aux.*
 models/*
 *.caffemodel
 *.caffemodel.h5
