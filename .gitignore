@@ -59,6 +59,11 @@ Makefile.config
 # 1. reference, and not casually committed
 # 2. custom, and live on their own unless they're deliberated contributed
 data/*
+data/mnist/*
+!data/mnist/
+!data/mnist/get_mnist.*
+data/ilsvrc12/*
+!data/ilsvrc12/
 models/*
 *.caffemodel
 *.caffemodel.h5
